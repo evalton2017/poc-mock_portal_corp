@@ -23,7 +23,7 @@
       "@config/*":["src/config/*"
       ],
       "@modules/*":[
-        "src/mdules/*"
+        "src/modules/*"
       ],
       "@shared/*":[
         "src/shared/*"
