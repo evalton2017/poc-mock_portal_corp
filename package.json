@@ -1,7 +1,7 @@
 {
-  "name": "auth-api",
+  "name": "auth-api-poc",
   "version": "1.0.0",
-  "description": "Auth-api",
+  "description": "Auth-api-poc",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evalton2017/api-bolao.git"
+    "url": "git+https://github.com/evalton2017/poc-mock_portal_corp"
   },
   "keywords": [
     "node",
@@ -35,9 +35,9 @@
   "author": "Evalton Gomes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/evalton2017/api-bolao.git"
+    "url": "https://github.com/evalton2017/poc-mock_portal_corp"
   },
-  "homepage": "https://github.com/evalton2017/api-bolao.git",
+  "homepage": "https://github.com/evalton2017/poc-mock_portal_corp",
   "dependencies": {
     "@hqoss/http-client": "^0.1.27-0",
     "@overnightjs/core": "^1.7.5",

@@ -1,30 +1,31 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
 import { AppLogger } from "./appLogger";
+import 'dotenv/config';
 
-
-//CONFIGURAÇÕES LOCAL
-const DB_LOCAL = 'auth';
-const USERNAME_LOCAL= 'auth';
-const PASSWORD_LOCAL='auth1234';
-const HOST_LOCAL='localhost';
+const config = {
+  host: process.env.HOST,
+  db: process.env.DB,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+};
 
 class Database{
 
-  createConnection(){
+  createConnection(): void{
     createConnection({
       type: "postgres",
-      host: HOST_LOCAL,
+      host: config.host,
       port: 5432,
-      username: USERNAME_LOCAL,
-      password: PASSWORD_LOCAL,
-      database: DB_LOCAL,
+      username: config.user,
+      password: config.password,
+      database: config.db,
       entities: [
         `${__dirname}/../**/*.model.{ts,js}`
       ],
       synchronize: true,
-      logging: false
-    }).then(connection => {
+      logging: false,
+    }).then((_connection): void => {
       AppLogger.info("Criando/atualizando tabelas no banco")
     }).catch((error) => {
       AppLogger.error(error);
