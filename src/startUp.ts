@@ -64,7 +64,7 @@ class StartUp {
   iniciaCarga(){
     setTimeout(() => {
       this.iniciaCargaAdmin();
-    }, 1000);
+    }, 7000);
   }
 
   async iniciaCargaAdmin(){

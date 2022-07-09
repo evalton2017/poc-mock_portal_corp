@@ -12,10 +12,6 @@ const config = {
 
 class Database{
 
-  constructor(){
-    console.log(config)
-  }
-
   createConnection(): void{
     createConnection({
       type: "postgres",
@@ -29,6 +25,9 @@ class Database{
       ],
       synchronize: true,
       logging: false,
+      ssl: {
+        rejectUnauthorized: false
+      }
     }).then((_connection): void => {
       AppLogger.info("Criando/atualizando tabelas no banco")
     }).catch((error) => {
