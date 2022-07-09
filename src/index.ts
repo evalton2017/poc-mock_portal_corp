@@ -2,10 +2,6 @@ import startUp from './startUp';
 import { AppLogger } from './util/appLogger';
 import fs = require('fs');
 
-const dir = './uploads';
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
-}
 
 const dir_log = './logs';
 if (!fs.existsSync(dir_log)){

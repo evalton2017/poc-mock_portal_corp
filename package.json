@@ -7,13 +7,14 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "tsc && node dist/src/index.js",
+    "start": "node dist/src/index.js",
     "build": "tsc",
     "postinstall": "npm run build",
     "compile": "tsc -w",
     "lint": "eslint ./src ./test --ext .ts",
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
-    "start-dev": "ts-node-dev --inspect --ignore-watch node_modules src/index.ts"
+    "start-dev": "ts-node-dev --inspect --ignore-watch node_modules src/index.ts",
+    "logs": "heroku logs --app=poc-api-auth -t"
   },
   "repository": {
     "type": "git",
