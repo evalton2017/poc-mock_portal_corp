@@ -12,6 +12,10 @@ const config = {
 
 class Database{
 
+  constructor(){
+    console.log(config)
+  }
+
   createConnection(): void{
     createConnection({
       type: "postgres",
