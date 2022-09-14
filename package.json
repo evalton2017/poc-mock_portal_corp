@@ -1,7 +1,7 @@
 {
-  "name": "auth-api-poc",
+  "name": "auth-caixa-app",
   "version": "1.0.0",
-  "description": "Auth-api-poc",
+  "description": "servico de autenticação baseado em jwt",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -13,8 +13,7 @@
     "compile": "tsc -w",
     "lint": "eslint ./src ./test --ext .ts",
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
-    "start-dev": "ts-node-dev --inspect --ignore-watch node_modules src/index.ts",
-    "logs": "heroku logs --app=poc-api-auth -t"
+    "start-dev": "ts-node-dev --inspect --ignore-watch node_modules src/index.ts"
   },
   "repository": {
     "type": "git",

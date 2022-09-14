@@ -5,6 +5,7 @@ import { User } from "../model/user.model";
 import httpStatus from 'http-status';
 import jwt from 'jsonwebtoken';
 import * as secrets from "../constantes/secrets";
+import { UserLogado } from "../model/userLogado.model";
 
 
 class UserService {
@@ -55,7 +56,6 @@ class UserService {
         usuario.cpf = user?.cpf;
         usuario.email = user?.email;
         usuario.perfis = user?.perfis;
-
         return usuario;
     }
 
@@ -64,14 +64,14 @@ class UserService {
         try{
             this.validateAccesToken(email, password);
             const userRepo = getRepository(User);
-            const user = await userRepo.findOne({email: email});
+            const user = await userRepo.findOne({email: email},{relations:["perfis"]});
             const senha = user?.password as string;
             const validahash = await this.validatePassword(password, senha);
             let accesToken;
             if(validahash){
                 accesToken = jwt.sign({user}, secrets.API_SECRET, {expiresIn: "1d"});
             }
-            return { status: httpStatus.OK,  accesToken }
+            return { status: httpStatus.OK,   user: this.getUser(user, accesToken)}
         }catch(err: any){
             return {
                 status: err.status ? err.status : httpStatus.INTERNAL_SERVER_ERROR ,
@@ -107,6 +107,15 @@ class UserService {
       return ( users).length > 0 ? true : false;
   }
 
+  getUser(user: User | undefined, token: any): UserLogado{
+    const usuario : UserLogado = new UserLogado();
+    usuario.nome = user?.nome;
+    usuario.cpf = user?.cpf;
+    usuario.email = user?.email;
+    usuario.perfis = user?.perfis;
+    usuario.token = token;
+    return usuario;
+}
 
 
 }

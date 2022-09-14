@@ -74,9 +74,9 @@ class StartUp {
     if(retorno == false){
         const user: User = new User();
         user.cpf= '000022223333';
-        user.email = 'admin@gmail.com';
+        user.email = 'duke@gmail.com';
         user.password = '123456';
-        user.nome = 'Administrador'
+        user.nome = 'administrador'
         service.cadastrarUser(user);
     }
   }

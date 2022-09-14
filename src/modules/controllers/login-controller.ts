@@ -28,11 +28,10 @@ class LoginController {
   async getAccessToken(req: Request, res: Response): Promise<Response> {
       const {email, password} = req.body;
       const service = new UserService();
-      const accesToken = await service.getAccessToken(email, password);
-      return res.status(accesToken.status).json(accesToken);
+      const response = await service.getAccessToken(email, password);
+      return res.status(response.status).json(response.user);
 
   }
-
 
 }
 
